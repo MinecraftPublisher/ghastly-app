@@ -6,15 +6,9 @@
         "url": "/stories/creepy_road.txt"
     },
     {
-        "name": "Submit a story",
-        "description": "You can submit your own story and we will publish it with your name on it!",
+        "name": "Creepy Road 2",
+        "description": "Amelia is on a journey to find out about what happened to Annie. She disappeared in the night and she is being framed for it.",
         "language": "english",
-        "url": "/stories/submit_story.html"
-    },
-    {
-        "name": "Game credits",
-        "description": "credits",
-        "language": "english",
-        "url": "/stories/credits.txt"
+        "url": "/stories/creepy_road_2.txt"
     }
 ]
