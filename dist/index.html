@@ -22,6 +22,11 @@
         <br>
         <list></list>
     </main>
+    <footer>
+        <a href="https://www.netlify.com/">Hosted with netlify</a>
+        <a href="/read?pack=/stories/submit_story.html&title=Submit%20a%20story&language=english">Submit a story</a>
+        <a href="/read?pack=/stories/credits.txt&title=Credits&language=english">Credits</a>
+    </footer>
 
     <script>
         // wait for the audio to load.
@@ -46,9 +51,6 @@
                                     window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
                                 };
                             }
-                            setTimeout(() => {
-                                message(false, 'I also used <a href="https://www.netlify.com">netlify</a> to run this site.');
-                            }, 200);
                         }, 500);
                     }, 800);
                 }, 800);
