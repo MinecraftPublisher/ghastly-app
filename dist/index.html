@@ -46,6 +46,9 @@
                                     window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
                                 };
                             }
+                            setTimeout(() => {
+                                message(false, 'I also used <a href="https://www.netlify.com">netlify</a> to run this site.');
+                            }, 200);
                         }, 500);
                     }, 800);
                 }, 800);

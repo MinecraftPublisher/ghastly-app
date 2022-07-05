@@ -4,4 +4,6 @@
 , The game design and mechanics were all done by me
 , The ambient music is made by <a href="https://tunetank.com/artist/603627289b70617e80edb1d4/">Rage Sound</a>.
 , The icon was taken from <a href="https://play.google.com/store/apps/details?id=com.horror_scary.story&hl=en_US&gl=US">here</a>.
+, The font is valium and Arial.
+, The code of conduct is available in the github repository MinecraftPublisher/scary-stories
 , If you want to say anything to me, you can contact me with <a href="mailto:mforoud86@gmail.com">my email</a>.
