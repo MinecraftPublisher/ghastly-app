@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--NAME-->
+    <title>Scary stories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0f0f0f">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="shortcut icon" href="/assets/icon.webp">
+    <link rel="apple-touch-icon" href="/assets/icon.webp">
+    <script defer="defer" src="/text.js"></script>
+</head>
+
+<body>
+    <main>
+        <br>
+        <h1 style="margin-bottom: -1rem;">
+            <!--NAME--> Scary stories (loading assets)
+        </h1>
+        <br>
+        <list></list>
+    </main>
+
+    <script>
+        // wait for the audio to load.
+        window.onload = () => {
+            playsound = false;
+            document.querySelector('main > h1').innerHTML = 'Scary stories';
+            // get data
+            fetch('/stories/index.json').then(e => e.text()).then(data => {
+                let stories = JSON.parse(data);
+                let list = document.querySelector('list');
+                message('author', 'minecraftpublisher');
+                message(true, 'Do you know some good stories to read?');
+                setTimeout(() => {
+                    message(false, 'Sure!');
+                    setTimeout(() => {
+                        message(false, 'I have some to share. Click on a message below to read it.');
+                        setTimeout(() => {
+                            for (let story of stories) {
+                                let elm = message(false, story.name, story.description, false);
+                                elm.querySelector('message').setAttribute('clickable', '1');
+                                elm.onclick = () => {
+                                    window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
+                                };
+                            }
+                        }, 500);
+                    }, 800);
+                }, 800);
+            });
+        };
+
+        // register the service worker
+        let version = 'v4';
+        if ('serviceWorker' in navigator) {
+            if (localStorage.getItem('registered') !== version) {
+                // deregister service worker
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    for (let registration of registrations) {
+                        registration.unregister();
+                    }
+
+                    // register service worker
+                    navigator.serviceWorker.register('/sw.js').then(registration => {
+                        message(false, 'By the way, The game assets are fully loaded. All sounds should be working now!', 'minecraftpublisher');
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                        localStorage.setItem('registered', version);
+                    }).catch(err => {
+                        message(false, 'Something went wrong in the app, Sounds might be delayed. Perhaps we don\'t support this device?', 'minecraftpublisher');
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

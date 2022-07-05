@@ -1,0 +1,90 @@
+message {
+    --bubble: rgb(81, 194, 255);
+
+    /* display: none; */
+    width: 15rem;
+    min-height: 2rem;
+    background: var(--bubble);
+    border-radius: 1rem;
+    border-bottom-left-radius: 0;
+    padding: 1rem;
+    margin: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+wrapper {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+wrapper>message>author {
+    display: block;
+    color: rgb(44, 44, 44);
+    padding-top: 0.4rem;
+    font-size: 0.7rem;
+}
+
+wrapper>message>author::before {
+    content: '✡︎ ';
+}
+
+wrapper.from>message {
+    float: right;
+    background-color: rgb(114, 255, 140);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 0rem;
+    transform: translateX(0rem);
+    animation: reveal-from 0.5s ease-in-out;
+}
+
+wrapper.to>message {
+    float: left;
+    transform: translateX(0rem);
+    animation: reveal-to 0.5s ease-in-out;
+}
+
+wrapper>message[clickable] {
+    transition: 0.2s ease-in-out background-color;
+}
+
+wrapper>message[clickable]:hover {
+    background-color: rgb(243, 255, 81);
+}
+
+@keyframes reveal-from {
+    from {
+        opacity: 0;
+        transform: translateX(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+@keyframes reveal-to {
+    from {
+        opacity: 0;
+        transform: translateX(-1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+wrapper.notice {
+    color: yellow;
+    text-align: center;
+    width: 100%;
+    display: block;
+    min-height: 6rem;
+    display: grid;
+    place-items: center;
+    font-family: 'Valium', Arial, Helvetica, sans-serif;
+
+    transform: translateX(0rem);
+    animation: reveal-from 1s ease-in-out;
+}

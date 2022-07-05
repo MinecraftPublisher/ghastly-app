@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--NAME-->
+    <title>Scary stories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0f0f0f">
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="shortcut icon" href="/assets/icon.webp">
+    <link rel="apple-touch-icon" href="/assets/icon.webp">
+    <script src="/text.js"></script>
+</head>
+
+<body>
+    <!-- The audio should be cached by now, So load it and loop it forever -->
+    <script>
+        let audio = new Audio('/assets/audio.mp3');
+        audio.loop = true;
+        audio.volume = 0.5;
+        audio.play();
+        window.onclick = () => {
+            audio.play();
+        };
+
+        function addOnBlurListener(onBlurCallback, onFocusCallback) {
+            var hidden, visibilityState, visibilityChange; // check the visiblility of the page
+
+            if (typeof document.hidden !== "undefined") {
+                hidden = "hidden"; visibilityChange = "visibilitychange"; visibilityState = "visibilityState";
+            } else if (typeof document.mozHidden !== "undefined") {
+                hidden = "mozHidden"; visibilityChange = "mozvisibilitychange"; visibilityState = "mozVisibilityState";
+            } else if (typeof document.msHidden !== "undefined") {
+                hidden = "msHidden"; visibilityChange = "msvisibilitychange"; visibilityState = "msVisibilityState";
+            } else if (typeof document.webkitHidden !== "undefined") {
+                hidden = "webkitHidden"; visibilityChange = "webkitvisibilitychange"; visibilityState = "webkitVisibilityState";
+            }
+
+
+            if (typeof document.addEventListener === "undefined" || typeof hidden === "undefined") {
+                // not supported
+            } else {
+                document.addEventListener(visibilityChange, function () {
+                    switch (document[visibilityState]) {
+                        case "visible":
+                            if (onFocusCallback) onFocusCallback();
+                            break;
+                        case "hidden":
+                            if (onBlurCallback) onBlurCallback();
+                            break;
+                    }
+                }, false);
+            }
+        }
+
+        addOnBlurListener(() => audio.pause(), () => audio.play());
+    </script>
+    <main></main>
+    <footer>
+        Tap anywhere to continue...
+        <br>
+        <a href="/">Back to main menu</a>
+    </footer>
+    <script>
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(new Blob(xmlHttp.response, { type: 'audio/mpeg' }));
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+
+        window.onload = () => {
+            load();
+        };
+    </script>
+</body>
+
+</html>

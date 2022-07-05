@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Creepy Road",
+        "description": "Annie is returning from a trip and her car breaks down. A man helps her to fix it, But at what cost?",
+        "language": "english",
+        "url": "/stories/creepy_road.txt"
+    },
+    {
+        "name": "تخت بیمارستان (در حین ساخت...)",
+        "description": "در یک بیمارستان متروکه در حومه شهر علی اتاق عجیبی پیدا می کند",
+        "language": "persian",
+        "url": "/stories/hospital_bed.txt"
+    },
+    {
+        "name": "Game credits",
+        "description": "credits",
+        "language": "english",
+        "url": "/stories/credits.txt"
+    }
+]
