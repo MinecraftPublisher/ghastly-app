@@ -145,7 +145,7 @@ const load = (() => {
     }
     fetch(name).then(e => {
         if (e.status === 200) {
-            message('notice', decodeURI(title));
+            message('notice', `<span style="color: red;">${decodeURI(title) + '<br><br>'}</span>`);
             e.text().then(data => pack(data));
         } else {
             message(false, 'That pack probably doesn\'t exist.', 'minecraftpublisher');

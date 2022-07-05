@@ -80,11 +80,15 @@ wrapper.notice {
     text-align: center;
     width: 100%;
     display: block;
-    min-height: 6rem;
+    min-height: 4rem;
     display: grid;
     place-items: center;
     font-family: 'Valium', Arial, Helvetica, sans-serif;
 
     transform: translateX(0rem);
     animation: reveal-from 1s ease-in-out;
+}
+
+wrapper.notice > text {
+    text-align: center;
 }
