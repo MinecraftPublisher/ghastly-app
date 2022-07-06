@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#0f0f0f">
     <link rel="stylesheet" href="/styles/global.css">
-    <link rel="shortcut icon" href="/assets/icon.webp">
-    <link rel="apple-touch-icon" href="/assets/icon.webp">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
     <script defer="defer" src="/text.js"></script>
 </head>
 
@@ -23,11 +23,12 @@
         <list></list>
     </main>
     <footer>
-        <a href="https://www.netlify.com/">Hosted with netlify</a>
         <a href="/read?pack=/stories/guide.txt&title=Submit%20a%20story%20guide&language=english">Submit a story guide</a>
         <a href="/read?pack=/stories/submit.html&title=Submit%20a%20story&language=english">Submit a story</a>
         <a href="/read?pack=/stories/credits.txt&title=Credits&language=english">Credits</a>
     </footer>
+    <ghost onclick="window.open('https://github.com/Minecraftpublisher');"></ghost>
+    <netlify onclick="window.open('https://www.netlify.com/');"></netlify>
 
     <script>
         // wait for the audio to load.
@@ -47,7 +48,7 @@
                         setTimeout(() => {
                             for (let story of stories) {
                                 if (story.ready) {
-                                    let elm = message(false, story.name, story.description, false);
+                                    let elm = message(false, story.name, story.description, false, true);
                                     elm.querySelector('message').setAttribute('clickable', '1');
                                     elm.onclick = () => {
                                         window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
