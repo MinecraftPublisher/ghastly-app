@@ -6,3 +6,46 @@
     font-family: 'Valium';
     src: url('/fonts/Valium.ttf');
 }
+
+ghost {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: url(/assets/favicon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 9rem;
+    height: 9rem;
+    opacity: 0.5;
+    transition: 0.2s ease-in-out opacity;
+}
+
+ghost:hover {
+    opacity: 1;
+}
+
+netlify {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: url(/assets/netlify.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    animation: 1s wiggle infinite ease-in-out;
+}
+
+@keyframes wiggle {
+    from {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    to {
+        transform: rotate(20deg);
+    }
+}
