@@ -25,6 +25,7 @@ function iOS() {
  */
 const message = globalThis.message = ((sent, input, author = ath, time = true) => {
     const scroll = (() => document.querySelector('main').scroll({ top: document.querySelector('main').scrollHeight, behavior: "smooth" }));
+    /* yk */ input = input.toLowerCase();
 
     if (sent === 'notice') {
         const elm = document.createElement('wrapper');

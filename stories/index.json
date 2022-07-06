@@ -14,6 +14,13 @@
         "ready": true
     },
     {
+        "name": "Movie Night",
+        "description": "Who said movies couldn't hunt for food?",
+        "language": "english",
+        "url": "/stories/movie_night.txt",
+        "ready": false
+    },
+    {
         "name": "تخت بیمارستان",
         "description": "در یک بیمارستان متروکه در حومه شهر علی اتاق عجیبی پیدا می کند",
         "language": "persian",
