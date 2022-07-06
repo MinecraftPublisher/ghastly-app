@@ -3,11 +3,7 @@
 . I wanted to submit a story
 , Alright, Do you wanna know how to write a story for scary stories?
 . Sure thing!
-. Can you send the form first?
-, Here you go.
-, <form name="submit_story" method="POST" netlify> <p> <label> Your name: <input type="text" name="name"> </label> </p> <p> <label> Story title: <input type="text" name="title"> </label> </p> <p> <textarea name="content" placeholder="Write your story here..."></textarea> </p> <p> <button type="submit">Submit</button> </p> </form>
-. Thanks!
-, Your welcome. Let's start.
+, Let's start.
 , Every message is separated by a newline.
 , Scary stories are just plain text files.
 , The single character at the start of the line is the message type.
