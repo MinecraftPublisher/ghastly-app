@@ -14,17 +14,17 @@
         "ready": true
     },
     {
+        "name": "Creepy road 3",
+        "description": "As the case remains unsolved, We dive deeper into the history of these three friends.",
+        "language": "english",
+        "url": "/stories/creepy_road_3.txt",
+        "ready": false
+    },
+    {
         "name": "Movie Night",
         "description": "Who said movies couldn't hunt for food?",
         "language": "english",
         "url": "/stories/movie_night.txt",
-        "ready": false
-    },
-    {
-        "name": "تخت بیمارستان",
-        "description": "در یک بیمارستان متروکه در حومه شهر علی اتاق عجیبی پیدا می کند",
-        "language": "persian",
-        "url": "/stories/hospital_bed.txt",
         "ready": false
     }
 ]
