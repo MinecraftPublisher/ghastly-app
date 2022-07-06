@@ -45,11 +45,13 @@
                         message(false, 'I have some to share. Click on a message below to read it.');
                         setTimeout(() => {
                             for (let story of stories) {
-                                let elm = message(false, story.name, story.description, false);
-                                elm.querySelector('message').setAttribute('clickable', '1');
-                                elm.onclick = () => {
-                                    window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
-                                };
+                                if (story.ready) {
+                                    let elm = message(false, story.name, story.description, false);
+                                    elm.querySelector('message').setAttribute('clickable', '1');
+                                    elm.onclick = () => {
+                                        window.location.href = `/read?pack=${story.url}&title=${story.name}&language=${story.language}`;
+                                    };
+                                }
                             }
                         }, 500);
                     }, 800);
