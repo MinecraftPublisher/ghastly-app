@@ -3,18 +3,22 @@ html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #0f0f0f;
+    background: url(/assets/background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: rgb(0, 221, 255);
     font-family: 'Valium', Arial, Helvetica, sans-serif;
     cursor: url(/assets/cursor.svg), auto;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 main {
     text-align: center;
     max-width: 30rem;
     margin: auto;
-    background-color: #0f0f0f;
-    height: 85vh;
+    background-color: transparent;
+    height: 88vh;
     overflow-y: scroll;
     margin-top: 0;
     margin-bottom: 0;
@@ -26,7 +30,7 @@ main {
 
 @media (pointer:none), (pointer:coarse) {
     main {
-        height: 78vh;
+        height: 82vh;
     }
 }
 
@@ -37,14 +41,13 @@ main > wrapper {
 
 footer {
     max-width: 30rem;
-    background-color: #0f0f0f;
-    height: 4vh;
+    height: 1vh;
     margin: auto;
     color: gray;
     display: grid;
     place-items: center;
     padding-bottom: 3rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 a {
