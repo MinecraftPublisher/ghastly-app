@@ -1,4 +1,4 @@
-# Scary stories
+# Ghastly
 A website to read crappy text stories off of. It's fun.
 
 ## Submitting your own
