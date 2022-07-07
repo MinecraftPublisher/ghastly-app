@@ -78,7 +78,7 @@ wrapper>message[clickable]:hover {
 wrapper.notice {
     color: yellow;
     text-align: center;
-    width: 100%;
+    max-width: 90%;
     display: block;
     display: grid;
     place-items: center;
