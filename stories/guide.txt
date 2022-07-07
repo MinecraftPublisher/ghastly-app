@@ -1,11 +1,11 @@
 * houston
 . Hi
 . I wanted to submit a story
-, Alright, Do you wanna know how to write a story for scary stories?
+, Alright, Do you wanna know how to write a story for Ghastly?
 . Sure thing!
 , Let's start.
 , Every message is separated by a newline.
-, Scary stories are just plain text files.
+, Ghastly stories are just plain text files.
 , The single character at the start of the line is the message type.
 , You must put a space between the character and the content!
 , . Like this.

@@ -3,7 +3,7 @@
 
 <head>
     <!--NAME-->
-    <title>Scary stories</title>
+    <title>Ghastly</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#0f0f0f">
@@ -17,7 +17,7 @@
     <main>
         <br>
         <h1 style="margin-bottom: -1rem;">
-            <!--NAME--> Scary stories (loading assets)
+            <!--NAME--> Ghastly (loading assets)
         </h1>
         <br>
         <list></list>
@@ -34,7 +34,7 @@
         // wait for the audio to load.
         window.onload = () => {
             playsound = false;
-            document.querySelector('main > h1').innerHTML = 'Scary stories<br><img src="https://app.netlify.com/access-control/bb-api/api/v1/badges/45867ce4-107c-4471-b183-464dd8872c82/deploy-status" alt="site deploy status (sorry, i couldn\'t dynamically fetch this one.)"><br>';
+            document.querySelector('main > h1').innerHTML = 'Ghastly<br><img src="https://app.netlify.com/access-control/bb-api/api/v1/badges/45867ce4-107c-4471-b183-464dd8872c82/deploy-status" alt="site deploy status (sorry, i couldn\'t dynamically fetch this one.)"><br>';
             // get data
             fetch('/stories/index.json').then(e => e.text()).then(data => {
                 let stories = JSON.parse(data);

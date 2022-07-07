@@ -25,7 +25,7 @@ wrapper>message>author {
 }
 
 wrapper>message>author::before {
-    content: '✡︎ ';
+    content: '⌬ ';
 }
 
 wrapper.from>message {
