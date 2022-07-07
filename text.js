@@ -83,7 +83,7 @@ const message = globalThis.message = ((sent, input, author = ath, time = true, c
             elm.style.color = foreground;
             data.style.background = background;
             data.style.color = foreground;
-            data.style.border = `1px solid ${foreground}`;
+            data.style.border = `2px solid ${foreground}`;
             text.style.background = background;
             text.style.color = foreground;
             _author.style.background = background;
@@ -98,8 +98,8 @@ const message = globalThis.message = ((sent, input, author = ath, time = true, c
                     _author.style.color = background;
                     text.style.background = foreground;
                     _author.style.background = foreground;
-                    data.style.border = `1px solid ${background}`;
-                    data.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
+                    data.style.border = `2px solid ${background}`;
+                    data.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out';
                     text.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
                     _author.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
                 });
@@ -111,8 +111,8 @@ const message = globalThis.message = ((sent, input, author = ath, time = true, c
                     _author.style.color = foreground;
                     text.style.background = background;
                     _author.style.background = background;
-                    data.style.border = `1px solid ${foreground}`;
-                    data.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
+                    data.style.border = `2px solid ${foreground}`;
+                    data.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out';
                     text.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
                     _author.style.transition = 'color 0.2s ease-in-out, background 0.2s ease-in-out';
                 });
