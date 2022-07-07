@@ -3,13 +3,13 @@ message {
 
     /* display: none; */
     width: 15rem;
-    min-height: 2rem;
+    min-height: 3rem;
     background: var(--bubble);
     border-radius: 1rem;
     border-bottom-left-radius: 0;
     padding: 1rem;
     margin: 1rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.1rem;
 }
 
 wrapper {
@@ -80,17 +80,21 @@ wrapper.notice {
     text-align: center;
     width: 100%;
     display: block;
-    min-height: 4rem;
     display: grid;
     place-items: center;
     font-family: 'Valium', Arial, Helvetica, sans-serif;
+    margin: 1rem;
 
     transform: translateX(0rem);
     animation: reveal-from 1s ease-in-out;
 }
 
 wrapper.notice > text {
+    font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 2rem;
 }
 
 textarea {

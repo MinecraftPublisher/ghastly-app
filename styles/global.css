@@ -15,8 +15,8 @@ ghost {
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
-    width: 9rem;
-    height: 9rem;
+    width: 6rem;
+    height: 6rem;
     opacity: 0.5;
     transition: 0.2s ease-in-out opacity;
 }
@@ -33,9 +33,15 @@ netlify {
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     animation: 1s wiggle infinite ease-in-out;
+}
+
+@media (pointer:none), (pointer:coarse) {
+    ghost {
+        display: none;
+    }
 }
 
 @keyframes wiggle {

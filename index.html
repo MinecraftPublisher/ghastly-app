@@ -27,19 +27,19 @@
         <a href="/read?pack=/stories/submit.html&title=Submit%20a%20story&language=english">Submit a story</a>
         <a href="/read?pack=/stories/credits.txt&title=Credits&language=english">Credits</a>
     </footer>
-    <ghost onclick="window.open('https://github.com/Minecraftpublisher');"></ghost>
+    <ghost onclick="window.open('https://github.com/MinecraftPublisher');"></ghost>
     <netlify onclick="window.open('https://www.netlify.com/');"></netlify>
 
     <script>
         // wait for the audio to load.
         window.onload = () => {
             playsound = false;
-            document.querySelector('main > h1').innerHTML = 'Scary stories';
+            document.querySelector('main > h1').innerHTML = 'Scary stories<br><img src="https://app.netlify.com/access-control/bb-api/api/v1/badges/45867ce4-107c-4471-b183-464dd8872c82/deploy-status" alt="site deploy status (sorry, i couldn\'t dynamically fetch this one.)"><br>';
             // get data
             fetch('/stories/index.json').then(e => e.text()).then(data => {
                 let stories = JSON.parse(data);
                 let list = document.querySelector('list');
-                message('author', 'minecraftpublisher');
+                message('author', 'houston');
                 message(true, 'Do you know some good stories to read?');
                 setTimeout(() => {
                     message(false, 'Sure!');
@@ -73,11 +73,11 @@
 
                     // register service worker
                     navigator.serviceWorker.register('/sw.js').then(registration => {
-                        message(false, 'By the way, The game assets are fully loaded. All sounds should be working now!', 'minecraftpublisher');
+                        message(false, 'By the way, The game assets are fully loaded. All sounds should be working now!', 'houston');
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
                         localStorage.setItem('registered', version);
                     }).catch(err => {
-                        message(false, 'Something went wrong in the app, Sounds might be delayed. Perhaps we don\'t support this device?', 'minecraftpublisher');
+                        message(false, 'Something went wrong in the app, Sounds might be delayed. Perhaps we don\'t support this device?', 'houston');
                         console.log('ServiceWorker registration failed: ', err);
                     });
                 });

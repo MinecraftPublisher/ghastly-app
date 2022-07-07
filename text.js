@@ -1,6 +1,6 @@
 let ath = '';
 let end_text = 'The end';
-let playsound = false;
+let playsound = true;
 let sounds = ['/assets/sent.mp3', '/assets/received.mp3'];
 
 function iOS() {
@@ -13,7 +13,7 @@ function iOS() {
         'iPod'
     ].includes(navigator.platform)
         // iPad on iOS 13 detection
-        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+        || ("ontouchend" in document)
 }
 
 String.prototype.hashCode = function () {
@@ -65,8 +65,6 @@ const message = globalThis.message = ((sent, input, author = ath, time = true, c
     } else {
         const elm = document.createElement('wrapper');
         elm.classList.add(sent ? 'from' : 'to');
-        let background = author.toLowerCase().colorify();
-        let foreground = reverse_hex(background);
         const data = document.createElement('message');
         elm.appendChild(data);
         const text = document.createElement('text');
@@ -77,6 +75,8 @@ const message = globalThis.message = ((sent, input, author = ath, time = true, c
         _author.innerHTML = (sent ? 'sent' : author) + (time ? ' ' + new Date().getHours() + ':' + (new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes() : '');
         data.appendChild(_author);
         if (!sent) {
+            let background = author.substring(2).toLowerCase().colorify();
+            let foreground = reverse_hex(background);
             background = author.colorify();
             foreground = reverse_hex(background);
             elm.style.background = background;
@@ -159,6 +159,7 @@ const pack = ((input) => {
     for (let line of input.split('\n')) {
         let operator = line[0];
         let text = line.slice(1);
+        if(text.startsWith(' ')) text = text.slice(1);
 
         switch (operator) {
             case '*':
@@ -219,9 +220,9 @@ const load = (() => {
             message('notice', `<span style="color: red;">${decodeURI(title) + '<br><br>'}</span>`);
             e.text().then(data => pack(data));
         } else {
-            message(false, 'That pack probably doesn\'t exist.', 'minecraftpublisher');
+            message(false, 'That pack probably doesn\'t exist.', 'houston');
             setTimeout(() => {
-                message(false, 'Press the "back to main menu" button on the bottom of the page to go back.', 'minecraftpublisher');
+                message(false, 'Press the "back to main menu" button on the bottom of the page to go back.', 'houston');
                 setTimeout(() => {
                     message('notice', end_text);
                 }, 1000);
