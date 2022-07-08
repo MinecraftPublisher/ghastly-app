@@ -24,7 +24,8 @@
         <list></list>
     </main>
     <footer>
-        <a href="/read?pack=/stories/guide.txt&title=Submit%20a%20story%20guide&language=english">Submit a story guide</a>
+        <a href="/read?pack=/stories/guide.txt&title=Submit%20a%20story%20guide&language=english">Submit a story
+            guide</a>
         <a href="/read?pack=/stories/submit.html&title=Submit%20a%20story&language=english">Submit a story</a>
         <a href="/read?pack=/stories/credits.txt&title=Credits&language=english">Credits</a>
     </footer>
@@ -34,8 +35,48 @@
     <script>
         // wait for the audio to load.
         window.onload = () => {
+            function timeDifference(current, previous) {
+
+                var msPerMinute = 60 * 1000;
+                var msPerHour = msPerMinute * 60;
+                var msPerDay = msPerHour * 24;
+                var msPerMonth = msPerDay * 30;
+                var msPerYear = msPerDay * 365;
+
+                var elapsed = current - previous;
+
+                if (elapsed < msPerMinute) {
+                    return Math.round(elapsed / 1000) + ' seconds ago';
+                }
+
+                else if (elapsed < msPerHour) {
+                    return Math.round(elapsed / msPerMinute) + ' minutes ago';
+                }
+
+                else if (elapsed < msPerDay) {
+                    return Math.round(elapsed / msPerHour) + ' hours ago';
+                }
+
+                else if (elapsed < msPerMonth) {
+                    return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+                }
+
+                else if (elapsed < msPerYear) {
+                    return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+                }
+
+                else {
+                    return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+                }
+            }
+
+            fetch('/last-deploy').then(e => e.text()).then(data => {
+                let difference = timeDifference(+new Date(), data);
+                let URL = 'https://img.shields.io/badge/last%20publish-' + encodeURI(difference) + '-9cf';
+                document.querySelector('main > h1').innerHTML = 'Ghastly<br><img src="' + URL + '" alt="last publish: ' + difference + '"><br>';
+            });
+
             playsound = false;
-            document.querySelector('main > h1').innerHTML = 'Ghastly<br><img src="https://app.netlify.com/access-control/bb-api/api/v1/badges/45867ce4-107c-4471-b183-464dd8872c82/deploy-status" alt="site deploy status (sorry, i couldn\'t dynamically fetch this one.)"><br>';
             // get data
             fetch('/stories/index.json').then(e => e.text()).then(data => {
                 let stories = JSON.parse(data);
@@ -74,8 +115,6 @@
 
                     // register service worker
                     navigator.serviceWorker.register('/sw.js').then(registration => {
-                        message(false, 'By the way, The game assets are fully loaded. All sounds should be working now!', 'houston');
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
                         localStorage.setItem('registered', version);
                         location.reload();
                     }).catch(err => {
