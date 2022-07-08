@@ -2,4 +2,4 @@
 .netlify
 .DS_STORE
 bun-tests
-./last-deploy
+last-deploy
