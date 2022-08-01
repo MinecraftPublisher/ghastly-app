@@ -159,6 +159,10 @@ const pack = ((input) => {
     for (let line of input.split('\n')) {
         let operator = line[0];
         let text = line.slice(1);
+        
+        let author2 = text.split(' # ')[0].slice(1);
+        let text2 = text.slice(author2.length + 3);
+
         if(text.startsWith(' ')) text = text.slice(1);
 
         switch (operator) {
@@ -174,6 +178,8 @@ const pack = ((input) => {
             case '!':
                 data.push(['notice', text]);
                 break;
+            case '#':
+                data.push([false, text2, author2]);
         }
     }
 
@@ -205,16 +211,7 @@ const load = (() => {
     if (name.indexOf('&') > -1) name = name.split('&')[0];
     let title = location.search.split('title=')[1];
     if (title.indexOf('&') > -1) title = title.split('&')[0];
-    let language = location.search.split('language=')[1];
-    if (language.indexOf('&') > -1) language = language.split('&')[0];
-    if (language === 'persian') {
-        end_text = 'پایان';
-        document.querySelector('footer').innerHTML = `برای ادامه هر جایی کلیک کنید...
-<a href="/">بازگشت به صفحه اصلی</a>`;
-        document.body.innerHTML += `<style>* { text-align: right; direction: rtl; }</style>`;
-    } else if (language === 'english' || !language) {
-        document.body.innerHTML += `<style>* { text-align: left; direction: ltr; }</style>`;
-    }
+    document.body.innerHTML += `<style>* { text-align: left; direction: ltr; }</style>`;
     fetch(name).then(e => {
         if (e.status === 200) {
             message('notice', `<span style="color: red;">${decodeURI(title) + '<br><br>'}</span>`);

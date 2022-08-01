@@ -2,28 +2,24 @@
     {
         "name": "Creepy Road",
         "description": "Annie is returning from a trip and her car breaks down. A man helps her to fix it, But at what cost?",
-        "language": "english",
         "url": "/stories/creepy_road.txt",
         "ready": true
     },
     {
         "name": "Creepy Road 2",
         "description": "Amelia is on a journey to find out about what happened to Annie. She disappeared in the night and she is being framed for it.",
-        "language": "english",
         "url": "/stories/creepy_road_2.txt",
         "ready": true
     },
     {
         "name": "Creepy road 3",
         "description": "As the case remains unsolved, We dive deeper into the history of these three friends.",
-        "language": "english",
         "url": "/stories/creepy_road_3.txt",
-        "ready": false
+        "ready": true
     },
     {
         "name": "Movie Night",
         "description": "Who said movies couldn't hunt for food?",
-        "language": "english",
         "url": "/stories/movie_night.txt",
         "ready": false
     }
